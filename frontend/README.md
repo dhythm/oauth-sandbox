@@ -25,3 +25,11 @@ npx @biomejs/biome init
 npx biome migrate eslint --write
 npx biome migrate prettier --write
 ```
+
+### Install Git hook helper
+
+```sh
+npm install lefthook --save-dev
+
+npx lefthook install
+```
