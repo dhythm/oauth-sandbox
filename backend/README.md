@@ -33,3 +33,9 @@ Do you confirm generation? (yes/no) [yes]
 poetry env use 3.10.9
 poetry install --no-root
 ```
+
+To get python path for poetry and update `python.defaultInterpreterPath` and `python.autoComplete.extraPaths` in `settings.json`.
+
+```sh
+poetry shell
+```
