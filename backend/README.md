@@ -5,7 +5,7 @@
 ```sh
 mkdir backend
 cd backend
-touch README.md
+touch README.md .gitignore
 ```
 
 ### Install Django via poetry
