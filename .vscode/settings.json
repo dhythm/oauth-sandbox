@@ -7,8 +7,8 @@
         "quickfix.biome": "explicit",
         "source.organizeImports.biome": "explicit"
     },
-    "python.defaultInterpreterPath": "/Users/dhythm/Library/Caches/pypoetry/virtualenvs/app-GlKI4N4i-py3.10/bin/python",
+    "python.defaultInterpreterPath": "~/Library/Caches/pypoetry/virtualenvs/app-GlKI4N4i-py3.10/bin/python",
     "python.autoComplete.extraPaths": [
-        "/Users/dhythm/Library/Caches/pypoetry/virtualenvs/app-GlKI4N4i-py3.10/lib/python3.10/site-packages"
+        "~/Library/Caches/pypoetry/virtualenvs/app-GlKI4N4i-py3.10/lib/python3.10/site-packages"
     ]
 }

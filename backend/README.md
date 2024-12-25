@@ -39,3 +39,36 @@ To get python path for poetry and update `python.defaultInterpreterPath` and `py
 ```sh
 poetry shell
 ```
+
+```sh
+poetry add Django
+poetry add djangorestframework
+poetry add django-cors-headers
+poetry add psycopg
+poetry add inertia-django
+poetry add django-vite
+```
+
+```sh
+poetry add --dev black isort autoflake
+poetry add --dev mypy django-stubs djangorestframework-stubs
+```
+
+```sh
+poetry run django-admin startproject app .
+poetry run python manage.py migrate
+```
+
+### Run app
+
+```sh
+poetry run python manage.py runserver 8080
+```
+
+### Create a new django app
+
+```sh
+poetry run python manage.py startapp oauth
+poetry run python manage.py makemigrations
+poetry run python manage.py migrate
+```
