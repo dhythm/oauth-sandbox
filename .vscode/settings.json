@@ -1,0 +1,14 @@
+{
+    "editor.defaultFormatter": "biomejs.biome",
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "editor.codeActionsOnSave": {
+        "quickfix.biome": "explicit",
+        "source.organizeImports.biome": "explicit"
+    },
+    "python.defaultInterpreterPath": "/Users/dhythm/Library/Caches/pypoetry/virtualenvs/app-fuoVzwE9-py3.10/bin/python",
+    "python.autoComplete.extraPaths": [
+        "/Users/dhythm/Library/Caches/pypoetry/virtualenvs/app-fuoVzwE9-py3.10/lib/python3.10/site-packages"
+    ]
+}

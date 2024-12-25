@@ -1,6 +1,9 @@
 # OAuth Sandbox with React and Django
 
-## Setting up
+## Set up the frontend
 
-- [Frontend](./frontend/README.md)
-- Backend
+[frontend/README.md](./frontend/README.md)
+
+## Set up the backend
+
+[backend/README.md](./backend/README.md)

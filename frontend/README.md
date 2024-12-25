@@ -1,4 +1,4 @@
-## Create environment
+## Frontend for OAuth Sandbox
 
 ### Install React via Vite
 
@@ -14,4 +14,14 @@ npm create vite@latest frontend                                                 
 ```sh
 npm install -D @types/node
 npm install -D @inertiajs/react
+```
+
+### Install formatter and linter
+
+```sh
+npm install --save-dev --save-exact @biomejs/biome
+
+npx @biomejs/biome init
+npx biome migrate eslint --write
+npx biome migrate prettier --write
 ```
