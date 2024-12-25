@@ -47,6 +47,7 @@ poetry add django-cors-headers
 poetry add psycopg
 poetry add inertia-django
 poetry add django-vite
+poetry add authlib
 ```
 
 ```sh

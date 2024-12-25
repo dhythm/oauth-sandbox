@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -117,6 +118,34 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+# AUTHLIB_OAUTH_CLIENTS = {
+#     "sap": {
+#         "client_id": os.getenv("SAP_CLIENT_ID", default="SAP client id"),
+#         "client_secret": os.getenv("SAP_CLIENT_SECRET", default="SAP client secret"),
+#         "access_token_url": os.getenv(
+#             "SAP_ACCESS_TOKEN_URL",
+#             default="",
+#         ),
+#         "access_token_params": None,
+#         "refresh_token_url": None,
+#         "authorize_url": os.getenv("SAP_AUTHORIZE_URL", default=""),
+#         "api_base_url": os.getenv("SAP_API_BASE_URL", default=""),
+#         "client_kwargs": {
+#             "scope": os.getenv("SAP_OAUTH_SCOPE", default="openid profile address"),
+#             "verify": os.getenv(
+#                 "REQUESTS_CA_BUNDLE", default=False
+#             ),  # NOTE: This configuration is for making requests to a self-signed certificate site.
+#         },
+#         "jwks_uri": os.getenv("SAP_JWKS_URI", default=""),
+#         "redirect_uri": os.getenv("SAP_REDIRECT_URI", default=""),
+#     }
+# }
+
+# SAP_API_ENDPOINT = os.getenv("SAP_API_ENDPOINT", default="")
+# SAP_API_SERVICEID = os.getenv("SAP_API_SERVICEID", default="service_id")
+# SAP_API_AUTHKEY = os.getenv("SAP_API_AUTHKEY", default="authentication_key")
+# SAP_API_ROLE = os.getenv("SAP_API_ROLE", default="role")
 
 
 # Internationalization

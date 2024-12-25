@@ -15,6 +15,11 @@ oauth.register(
 
 
 @api_view(["GET"])
+def hello(request):
+    return Response({"message": "Hello, world!"}, status=200)
+
+
+@api_view(["GET"])
 def login_sap(request):
     redirect_uri = request.build_absolute_uri(os.getenv("SAP_REDIRECT_URI"))
     return oauth.sap.authorize_redirect(request, redirect_uri)
