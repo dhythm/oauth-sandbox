@@ -1,3 +1,4 @@
+import requests
 import os
 from authlib.integrations.base_client import OAuthError
 from authlib.integrations.django_client import OAuth
@@ -10,8 +11,6 @@ oauth = OAuth()
 oauth.register(
     name="sap",
     access_token_url=settings.AUTHLIB_OAUTH_CLIENTS["sap"]["access_token_url"],
-    authorize_url=settings.AUTHLIB_OAUTH_CLIENTS["sap"]["authorize_url"],
-    jwks_uri=settings.AUTHLIB_OAUTH_CLIENTS["sap"]["jwks_uri"],
 )
 
 
@@ -24,12 +23,6 @@ def hello(request):
 
 
 @api_view(["GET"])
-def login_sap(request):
-    redirect_uri = request.build_absolute_uri(os.getenv("SAP_REDIRECT_URI"))
-    return oauth.sap.authorize_redirect(request, redirect_uri)
-
-
-@api_view(["GET"])
 def authorize_sap(request):
     error = request.GET.get("error")
     if error:
@@ -37,14 +30,14 @@ def authorize_sap(request):
         raise OAuthError(error, description)
 
     data = {
-        "grant_type": "authorization_code",
-        "code": request.GET.get("code"),
         "client_id": settings.AUTHLIB_OAUTH_CLIENTS["sap"]["client_id"],
-        "redirect_uri": settings.AUTHLIB_OAUTH_CLIENTS["sap"]["redirect_uri"],
         "client_secret": settings.AUTHLIB_OAUTH_CLIENTS["sap"]["client_secret"],
+        "grant_type": settings.AUTHLIB_OAUTH_CLIENTS["sap"]["grant_type"],
+        "username": settings.AUTHLIB_OAUTH_CLIENTS["sap"]["username"],
+        "password": settings.AUTHLIB_OAUTH_CLIENTS["sap"]["password"],
     }
 
-    response = request.post(
+    response = requests.post(
         settings.AUTHLIB_OAUTH_CLIENTS["sap"]["access_token_url"], data=data
     )
 

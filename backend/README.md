@@ -64,6 +64,12 @@ poetry run python manage.py migrate
 
 ```sh
 poetry run python manage.py runserver 8080
+
+SAP_CLIENT_ID=client_id \
+SAP_CLIENT_SECRET=client_secret \
+SAP_USERNAME=username \
+SAP_PASSWORD=password \
+poetry run python manage.py runserver 8080
 ```
 
 ### Create a new django app

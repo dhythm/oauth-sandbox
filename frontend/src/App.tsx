@@ -16,7 +16,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={async () => {
-          const res = await fetch('http://localhost:8080/api/sap/hello/')
+          const res = await fetch('http://localhost:8080/api/sap/authorize/')
           console.log(await res.json())
         }}>
           Login with SAP
