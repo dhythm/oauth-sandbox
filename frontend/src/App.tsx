@@ -21,8 +21,14 @@ function App() {
         }}>
           Login with SAP
         </button>
-        <br />
-        <br />
+        <br /><br />
+        <button onClick={async () => {
+          const res = await fetch('http://localhost:8080/api/sap/me/')
+          console.log(await res.json())
+        }}>
+          Get Me from SAP API
+        </button>
+        <br /><br />
         <button onClick={async () => {
           const res = await fetch('http://localhost:8080/api/sap/users/')
           console.log(await res.json())

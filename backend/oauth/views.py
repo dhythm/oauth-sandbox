@@ -6,7 +6,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from oauth.models import Token
 
-
 oauth = OAuth()
 oauth.register(
     name="sap",
@@ -15,7 +14,7 @@ oauth.register(
 
 
 @api_view(["GET"])
-def hello(request):
+def hello(request) -> Response:
     return Response(
         {"message": "Hello, world!", "sap": settings.AUTHLIB_OAUTH_CLIENTS["sap"]},
         status=200,
@@ -23,7 +22,21 @@ def hello(request):
 
 
 @api_view(["GET"])
-def get_users(request):
+def get_me(request) -> Response:
+    token = Token.objects.first()
+    if not token:
+        raise OAuthError("invalid_token", "Token not found")
+
+    response = requests.get(
+        token.geolocation + "/profile/v1/me/",
+        headers={"Authorization": f"Bearer {token.access_token}"},
+    )
+    print(response.json())
+    return Response(response.json(), status=200)
+
+
+@api_view(["GET"])
+def get_users(request) -> Response:
     token = Token.objects.first()
     if not token:
         raise OAuthError("invalid_token", "Token not found")
@@ -41,11 +54,11 @@ def get_users(request):
         headers={"Authorization": f"Bearer {token.access_token}"},
     )
     print(response.json())
-    return Response({}, status=200)
+    return Response(response.json(), status=200)
 
 
 @api_view(["GET"])
-def authorize_sap(request):
+def authorize_sap(request) -> Response:
     error = request.GET.get("error")
     if error:
         description = request.GET.get("error_description")
