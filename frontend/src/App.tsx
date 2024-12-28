@@ -21,6 +21,14 @@ function App() {
         }}>
           Login with SAP
         </button>
+        <br />
+        <br />
+        <button onClick={async () => {
+          const res = await fetch('http://localhost:8080/api/sap/users/')
+          console.log(await res.json())
+        }}>
+          Get users from SAP API
+        </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
