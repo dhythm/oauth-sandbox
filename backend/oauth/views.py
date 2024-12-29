@@ -31,6 +31,7 @@ def get_me(request) -> Response:
         token.geolocation + "/profile/v1/me/",
         headers={"Authorization": f"Bearer {token.access_token}"},
     )
+
     print(response.json())
     return Response(response.json(), status=200)
 
@@ -42,12 +43,6 @@ def get_users(request) -> Response:
         raise OAuthError("invalid_token", "Token not found")
 
     # print(token.__dict__)
-    # response = oauth.sap.get(
-    #     "https://us.api.concursolutions.com/api/v3.1/expense/reports",
-    #     token=token.access_token,
-    # )
-
-    # return Response(response.json(), status=200)
 
     response = requests.get(
         token.geolocation + "/profile/identity/v4/Users",
