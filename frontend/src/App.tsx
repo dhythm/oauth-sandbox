@@ -35,6 +35,13 @@ function App() {
         }}>
           Get users from SAP API
         </button>
+        <br /><br />
+        <button onClick={async () => {
+          const res = await fetch('http://localhost:8080/api/sap/lists/')
+          console.log(await res.json())
+        }}>
+          Get lists from SAP API
+        </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

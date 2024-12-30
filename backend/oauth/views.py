@@ -53,6 +53,21 @@ def get_users(request) -> Response:
 
 
 @api_view(["GET"])
+def get_lists(request) -> Response:
+    token = Token.objects.first()
+    if not token:
+        raise OAuthError("invalid_token", "Token not found")
+
+    response = requests.get(
+        token.geolocation + "/list/v4/lists",
+        headers={"Authorization": f"Bearer {token.access_token}"},
+    )
+
+    print(response.json())
+    return Response(response.json(), status=200)
+
+
+@api_view(["GET"])
 def authorize_sap(request) -> Response:
     error = request.GET.get("error")
     if error:
