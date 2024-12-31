@@ -42,6 +42,21 @@ def get_users(request) -> Response:
     if not token:
         raise OAuthError("invalid_token", "Token not found")
 
+    response = requests.get(
+        token.geolocation + "/profile/v4/Users",
+        headers={"Authorization": f"Bearer {token.access_token}"},
+    )
+
+    print(response.json())
+    return Response(response.json(), status=200)
+
+
+@api_view(["GET"])
+def get_users_in_identity(request) -> Response:
+    token = Token.objects.first()
+    if not token:
+        raise OAuthError("invalid_token", "Token not found")
+
     # print(token.__dict__)
 
     response = requests.get(
